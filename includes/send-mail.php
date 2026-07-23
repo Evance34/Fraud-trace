@@ -4,45 +4,43 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once 'config.php';
-
-/*
-====================================================
-Create Mail Object
-====================================================
-*/
 
 function createMailer()
 {
     $mail = new PHPMailer(true);
 
+    // Enable SMTP
     $mail->isSMTP();
 
-    $mail->Host = smtp.gmail.com;
-
+    // SMTP Server
+    $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
 
-    $mail->Username = thegrowthn@gmail.com;
+    // Gmail Credentials
+    $mail->Username = 'thegrowthn@gmail.com';
+    $mail->Password = 'sioj iqvg aufj mewo';
 
-    $mail->Password = siojiqvgaufjmewo;
-
-    $mail->SMTPSecure = SMTP_ENCRYPTION;
-
+    // Encryption
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
 
+    // Email Settings
     $mail->CharSet = 'UTF-8';
-
     $mail->isHTML(true);
 
-    $mail->setFrom(Fraud Trace);
+    // Sender
+    $mail->setFrom('thegrowthn@gmail.com', 'Fraud Trace');
+
+    // Uncomment this for debugging if needed
+    // $mail->SMTPDebug = 2;
 
     return $mail;
 }
 
 /*
-====================================================
+==========================================
 Send Confirmation Email to Victim
-====================================================
+==========================================
 */
 
 function sendConfirmationEmail($recipientName, $recipientEmail, $referenceNumber)
@@ -53,45 +51,41 @@ function sendConfirmationEmail($recipientName, $recipientEmail, $referenceNumber
 
         $mail->addAddress($recipientEmail, $recipientName);
 
-        $mail->Subject = "Your Fraud Trace Complaint Has Been Received";
+        $mail->Subject = 'Your Fraud Trace Complaint Has Been Received';
 
-        $body = "
-
+        $mail->Body = "
         <h2>Thank You for Contacting Fraud Trace</h2>
 
-        <p>Dear {$recipientName},</p>
+        <p>Dear <strong>{$recipientName}</strong>,</p>
 
         <p>We have successfully received your complaint.</p>
 
         <p><strong>Reference Number:</strong> {$referenceNumber}</p>
 
-        <p>Our team will review the information you submitted. If additional information is required, we will contact you using the details you provided.</p>
+        <p>Our investigation team will review the information you submitted. If additional information is required, we will contact you using the details you provided.</p>
 
         <p>Please keep your reference number for future correspondence.</p>
 
         <br>
 
         <p>Regards,</p>
-
-        <p><strong>Fraud Trace</strong></p>
-
+        <p><strong>Fraud Trace Team</strong></p>
         ";
-
-        $mail->Body = $body;
 
         return $mail->send();
 
     } catch (Exception $e) {
 
+        echo $mail->ErrorInfo;
         return false;
 
     }
 }
 
 /*
-====================================================
-Notify Fraud Trace Team
-====================================================
+==========================================
+Notify Admin
+==========================================
 */
 
 function notifyAdmin($data, $referenceNumber)
@@ -100,71 +94,50 @@ function notifyAdmin($data, $referenceNumber)
 
         $mail = createMailer();
 
-        $mail->addAddress(skedoidiot@gmail.com, Fraud Trace);
+        $mail->addAddress('skedoidiot@gmail.com', 'Fraud Trace');
 
         $mail->Subject = "New Fraud Complaint - {$referenceNumber}";
 
-        $body = "
+        $mail->Body = "
 
-        <h2>New Complaint Received</h2>
+        <h2>New Fraud Complaint Received</h2>
 
         <table border='1' cellpadding='10' cellspacing='0' width='100%'>
 
-        <tr>
+            <tr>
+                <td><strong>Reference</strong></td>
+                <td>{$referenceNumber}</td>
+            </tr>
 
-        <td><strong>Reference</strong></td>
+            <tr>
+                <td><strong>Full Name</strong></td>
+                <td>{$data['fullname']}</td>
+            </tr>
 
-        <td>{$referenceNumber}</td>
+            <tr>
+                <td><strong>Email</strong></td>
+                <td>{$data['email']}</td>
+            </tr>
 
-        </tr>
+            <tr>
+                <td><strong>Phone</strong></td>
+                <td>{$data['phone']}</td>
+            </tr>
 
-        <tr>
+            <tr>
+                <td><strong>Fraud Type</strong></td>
+                <td>{$data['fraudType']}</td>
+            </tr>
 
-        <td><strong>Name</strong></td>
+            <tr>
+                <td><strong>Country</strong></td>
+                <td>{$data['country']}</td>
+            </tr>
 
-        <td>{$data['fullname']}</td>
-
-        </tr>
-
-        <tr>
-
-        <td><strong>Email</strong></td>
-
-        <td>{$data['email']}</td>
-
-        </tr>
-
-        <tr>
-
-        <td><strong>Phone</strong></td>
-
-        <td>{$data['phone']}</td>
-
-        </tr>
-
-        <tr>
-
-        <td><strong>Fraud Type</strong></td>
-
-        <td>{$data['fraudType']}</td>
-
-        </tr>
-
-        <tr>
-
-        <td><strong>Country</strong></td>
-
-        <td>{$data['country']}</td>
-
-        </tr>
-
-        <tr>
-
-        <td><strong>Amount Lost</strong></td>
-
-        <td>{$data['amountLost']}</td>
-
-        </tr>
+            <tr>
+                <td><strong>Amount Lost</strong></td>
+                <td>{$data['amountLost']}</td>
+            </tr>
 
         </table>
 
@@ -176,12 +149,11 @@ function notifyAdmin($data, $referenceNumber)
 
         ";
 
-        $mail->Body = $body;
-
         return $mail->send();
 
     } catch (Exception $e) {
 
+        echo $mail->ErrorInfo;
         return false;
 
     }
