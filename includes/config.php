@@ -38,7 +38,7 @@ define('SMTP_PORT', 587);
 
 define('SMTP_USERNAME', 'thegrowthn@gmail.com');
 
-define('SMTP_PASSWORD', 'sioj iqvg aufj mewo');
+define('SMTP_PASSWORD', 'siojiqvgaufjmewo');
 
 define('SMTP_ENCRYPTION', 'tls');
 
