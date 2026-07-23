@@ -18,23 +18,23 @@ function createMailer()
 
     $mail->isSMTP();
 
-    $mail->Host = SMTP_HOST;
+    $mail->Host = smtp.gmail.com;
 
     $mail->SMTPAuth = true;
 
-    $mail->Username = SMTP_USERNAME;
+    $mail->Username = thegrowthn@gmail.com;
 
-    $mail->Password = SMTP_PASSWORD;
+    $mail->Password = siojiqvgaufjmewo;
 
     $mail->SMTPSecure = SMTP_ENCRYPTION;
 
-    $mail->Port = SMTP_PORT;
+    $mail->Port = 587;
 
     $mail->CharSet = 'UTF-8';
 
     $mail->isHTML(true);
 
-    $mail->setFrom(COMPANY_EMAIL, SITE_NAME);
+    $mail->setFrom(Fraud Trace);
 
     return $mail;
 }
@@ -100,7 +100,7 @@ function notifyAdmin($data, $referenceNumber)
 
         $mail = createMailer();
 
-        $mail->addAddress(COMPANY_EMAIL, SITE_NAME);
+        $mail->addAddress(skedoidiot@gmail.com, Fraud Trace);
 
         $mail->Subject = "New Fraud Complaint - {$referenceNumber}";
 
