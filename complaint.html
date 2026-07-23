@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>File a Complaint | Fraud Trace</title>
+
+<meta name="description"
+content="Securely report fraud or scams to Fraud Trace. Submit your complaint and supporting evidence for review.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<!-- ===========================
+HEADER
+=========================== -->
+
+<header>
+
+<div class="container">
+
+<div class="logo">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<span>Fraud Trace</span>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="complaint.html" class="active">File Complaint</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<a href="index.html" class="btn-primary">
+
+<i class="fa-solid fa-house"></i>
+
+Home
+
+</a>
+
+</div>
+
+</header>
+
+<!-- ===========================
+PAGE HERO
+=========================== -->
+
+<section class="hero small-hero">
+
+<div class="container">
+
+<div class="hero-content text-center">
+
+<h1>
+
+File a Fraud Complaint
+
+</h1>
+
+<p>
+
+Complete the secure form below with as much detail as possible.
+
+Supporting documents can be uploaded in the next step.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+FORM
+=========================== -->
+
+<section class="complaint-section">
+
+<div class="container">
+
+<div class="complaint-wrapper">
+
+<div class="form-side">
+
+<div class="form-title">
+
+<h2>
+
+Victim Information
+
+</h2>
+
+<p>
+
+Fields marked with *
+
+are required.
+
+</p>
+
+</div>
+
+<form
+id="complaintForm"
+action="submit-complaint.php"
+method="POST"
+enctype="multipart/form-data">
+
+<!-- ===========================
+FULL NAME
+=========================== -->
+
+<div class="form-group">
+
+<label>
+
+Full Name *
+
+</label>
+
+<input
+type="text"
+name="fullname"
+placeholder="Enter your full name"
+required>
+
+</div>
+
+<!-- ===========================
+EMAIL
+=========================== -->
+
+<div class="form-group">
+
+<label>
+
+Email Address *
+
+</label>
+
+<input
+type="email"
+name="email"
+placeholder="you@example.com"
+required>
+
+</div>
+
+<!-- ===========================
+PHONE
+=========================== -->
+
+<div class="form-group">
+
+<label>
+
+Phone Number *
+
+</label>
+
+<input
+type="tel"
+name="phone"
+placeholder="+1 (555) 123-4567"
+required>
+
+</div>
+
+<!-- ===========================
+MAILING ADDRESS
+=========================== -->
+
+<div class="form-group">
+
+<label>
+
+Mailing Address (Optional)
+
+</label>
+
+<input
+type="text"
+name="address"
+placeholder="Street Address">
+
+</div>
+
+<!-- ===========================
+CITY
+=========================== -->
+
+<div class="two-column">
+
+<div class="form-group">
+
+<label>
+
+City *
+
+</label>
+
+<input
+type="text"
+name="city"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+State / Province *
+
+</label>
+
+<input
+type="text"
+name="state"
+required>
+
+</div>
+
+</div>
+
+<!-- ===========================
+COUNTRY
+=========================== -->
+
+<div class="form-group">
+
+<label>
+
+Country *
+
+</label>
+
+<input
+type="text"
+name="country"
+placeholder="United States"
+required>
+
+</div>
+<!-- ===========================
+FRAUD TYPE
+=========================== -->
+
+<div class="form-group">
+
+<label>
+
+Type of Fraud *
+
+</label>
+
+<select name="fraudType" required>
+
+<option value="">Select Fraud Type</option>
+
+<option>Romance Scam</option>
+
+<option>Investment Fraud</option>
+
+<option>Cryptocurrency Scam</option>
+
+<option>Business Email Compromise (BEC)</option>
+
+<option>Identity Theft</option>
+
+<option>Check Fraud</option>
+
+<option>Online Shopping Scam</option>
+
+<option>Employment Scam</option>
+
+<option>Advance Fee Scam</option>
+
+<option>Lottery / Sweepstakes Scam</option>
+
+<option>Tech Support Scam</option>
+
+<option>Other</option>
+
+</select>
+
+</div>
+
+<!-- ===========================
+DATE OF INCIDENT
+=========================== -->
+
+<div class="form-group">
+
+<label>
+
+Approximate Date of Incident
+
+</label>
+
+<input
+
+type="date"
+
+name="incidentDate">
+
+</div>
+
+<!-- ===========================
+AMOUNT LOST
+=========================== -->
+
+<div class="form-group">
+
+<label>
+
+Approximate Amount Lost (Optional)
+
+</label>
+
+<input
+
+type="text"
+
+name="amountLost"
+
+placeholder="Example: USD 2,500">
+
+</div>
+
+<!-- ===========================
+SCAMMER NAME
+=========================== -->
+
+<div class="form-group">
+
+<label>
+
+Scammer Name / Company (If Known)
+
+</label>
+
+<input
+
+type="text"
+
+name="scammer"
+
+placeholder="Name or company involved">
+
+</div>
+
+<!-- ===========================
+WEBSITE
+=========================== -->
+
+<div class="form-group">
+
+<label>
+
+Website / Social Media Profile (Optional)
+
+</label>
+
+<input
+
+type="url"
+
+name="website"
+
+placeholder="https://example.com">
+
+</div>
+
+<!-- ===========================
+DESCRIPTION
+=========================== -->
+
+<div class="form-group">
+
+<label>
+
+Explain What Happened *
+
+</label>
+
+<textarea
+
+name="description"
+
+rows="10"
+
+placeholder="Please describe the incident in as much detail as possible. Include dates, communications, payment methods, names, phone numbers, email addresses, wallet addresses or any other information that may help us understand your report."
+
+required></textarea>
+
+</div>
+
+<!-- ===========================
+EVIDENCE
+=========================== -->
+
+<div class="form-group">
+
+<label>
+
+Upload Supporting Evidence
+
+</label>
+
+<input
+
+type="file"
+
+name="evidence"
+
+multiple
+
+accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.txt,.zip">
+
+<small>
+
+Accepted file types:
+
+JPG, PNG, PDF, DOC, DOCX, TXT and ZIP.
+
+Maximum upload size will be enforced by the server.
+
+</small>
+
+</div>
+
+<!-- ===========================
+CONTACT METHOD
+=========================== -->
+
+<div class="form-group">
+
+<label>
+
+Preferred Contact Method
+
+</label>
+
+<select name="contactMethod">
+
+<option>Email</option>
+
+<option>Phone Call</option>
+
+<option>SMS</option>
+
+</select>
+
+</div>
+
+<!-- ===========================
+CONSENT
+=========================== -->
+
+<div class="form-group checkbox-group">
+
+<label>
+
+<input
+
+type="checkbox"
+
+required>
+
+I confirm that the information I have provided is true to the best of my knowledge and I consent to Fraud Trace contacting me regarding this report.
+
+</label>
+
+</div>
+
+<!-- ===========================
+SUBMIT
+=========================== -->
+
+<div class="form-group">
+
+<button
+
+type="submit"
+
+class="btn-primary submit-btn">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Submit Complaint
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+<!-- ==========================================
+     RIGHT SIDEBAR
+========================================== -->
+
+<div class="info-side">
+
+<div class="info-card">
+
+<h3>
+
+<i class="fa-solid fa-shield-halved"></i>
+
+Your Privacy Matters
+
+</h3>
+
+<p>
+
+Information you submit is handled confidentially and is reviewed only for the purpose of assessing your complaint and communicating with you about your case.
+
+</p>
+
+</div>
+
+<div class="info-card">
+
+<h3>
+
+<i class="fa-solid fa-list-check"></i>
+
+What Happens Next?
+
+</h3>
+
+<ol>
+
+<li>Your complaint is securely received.</li>
+
+<li>Our team performs an initial review.</li>
+
+<li>If additional information is needed, we will contact you using the email address or phone number you provided.</li>
+
+<li>Where appropriate, we can discuss available reporting options based on the circumstances you described.</li>
+
+</ol>
+
+</div>
+
+<div class="info-card">
+
+<h3>
+
+<i class="fa-solid fa-file-shield"></i>
+
+Helpful Tips
+
+</h3>
+
+<ul>
+
+<li>Upload clear screenshots.</li>
+
+<li>Include receipts or payment confirmations.</li>
+
+<li>Provide email headers if available.</li>
+
+<li>Do not alter documents before uploading.</li>
+
+<li>Include dates whenever possible.</li>
+
+</ul>
+
+</div>
+
+<div class="info-card emergency">
+
+<h3>
+
+<i class="fa-solid fa-circle-exclamation"></i>
+
+Important Notice
+
+</h3>
+
+<p>
+
+If you believe you are in immediate danger or a crime is currently in progress, contact your local emergency services or law enforcement immediately.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     CONTACT STRIP
+========================================== -->
+
+<section class="cta">
+
+<div class="container">
+
+<h2>
+
+Need Help Before Submitting?
+
+</h2>
+
+<p>
+
+If you're unsure which fraud category applies or have questions about the form, contact us before submitting your complaint.
+
+</p>
+
+<a href="contact.html" class="btn-primary">
+
+<i class="fa-solid fa-envelope"></i>
+
+Contact Us
+
+</a>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+<div class="container footer-grid">
+
+<div>
+
+<h3>
+
+Fraud Trace
+
+</h3>
+
+<p>
+
+Fraud Trace is an independent fraud reporting service that helps individuals organize complaint information and supporting documentation. We are not a government agency or law enforcement organization.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>
+
+Quick Links
+
+</h3>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="complaint.html">File Complaint</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>
+
+Contact
+
+</h3>
+
+<p>
+
+703 Oak Street<br>
+
+La Crosse, Kansas
+
+</p>
+
+<p>
+
+support@fraudtrace.com
+
+</p>
+
+</div>
+
+<div>
+
+<h3>
+
+Office Hours
+
+</h3>
+
+<p>
+
+Monday – Friday
+
+</p>
+
+<p>
+
+9:00 AM – 5:00 PM
+
+</p>
+
+</div>
+
+</div>
+
+<div class="copyright">
+
+<p>
+
+© 2026 Fraud Trace. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+
+<button id="topBtn">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
