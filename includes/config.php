@@ -19,7 +19,7 @@ define('SITE_URL', 'https://www.fraudtrace.com'); // Change to your real domain
 
 define('COMPANY_EMAIL', 'support@fraudtrace.com');
 
-define('COMPANY_PHONE', '+1 (000) 000-0000');
+define('COMPANY_PHONE', '+1 (216) 245-5626');
 
 define('COMPANY_ADDRESS', '703 Oak Street, La Crosse, Kansas');
 
@@ -32,13 +32,13 @@ Do NOT commit real passwords to public repositories.
 ====================================================
 */
 
-define('SMTP_HOST', 'mail.yourdomain.com');
+define('SMTP_HOST', 'smtp.gmail.com');
 
 define('SMTP_PORT', 587);
 
-define('SMTP_USERNAME', 'support@fraudtrace.com');
+define('SMTP_USERNAME', 'thegrowthn@gmail.com');
 
-define('SMTP_PASSWORD', 'YOUR_EMAIL_PASSWORD');
+define('SMTP_PASSWORD', 'sioj iqvg aufj mewo');
 
 define('SMTP_ENCRYPTION', 'tls');
 
